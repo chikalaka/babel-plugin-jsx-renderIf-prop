@@ -1,0 +1,41 @@
+{
+  "name": "babel-plugin-jsx-renderif-prop",
+  "version": "1.0.0",
+  "description": "A Babel plugin that adds a 'renderIf' prop to JSX elements for conditionally rendering components in React",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chikalaka/babel-plugin-jsx-renderIf-prop.git"
+  },
+  "keywords": [
+    "babel",
+    "babel-plugin",
+    "react",
+    "jsx",
+    "conditional-rendering",
+    "renderIf",
+    "typescript",
+    "es6",
+    "transform"
+  ],
+  "author": "edan.chetrit@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chikalaka/babel-plugin-jsx-renderIf-prop/issues"
+  },
+  "homepage": "https://github.com/chikalaka/babel-plugin-jsx-renderIf-prop#readme",
+  "dependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/helper-plugin-utils": "^7.20.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=0.14.0"
+  }
+}
