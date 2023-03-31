@@ -1,33 +1,35 @@
-import { declare } from "@babel/helper-plugin-utils";
+const { declare } = require("@babel/helper-plugin-utils");
 
 module.exports = declare((api, options) => {
   api.assertVersion(7)
 
+  const PROP_NAME = "renderIf";
+
   return {
-    name: "babel-plugin-show-prop",
+    name: "babel-plugin-jsx-renderif-prop",
 
     visitor: {
       JSXElement(path) {
         const openingElement = path.node.openingElement
-        const showAttributeIndex = openingElement.attributes.findIndex(
-          (attr) => attr.name && attr.name.name === "show"
+        const attributeIndex = openingElement.attributes.findIndex(
+          (attr) => attr.name && attr.name.name === PROP_NAME
         )
 
-        if (showAttributeIndex === -1) {
+        if (attributeIndex === -1) {
           return
         }
 
-        const showAttribute = openingElement.attributes[showAttributeIndex]
-        const showValue =
-                showAttribute.value.type === "JSXExpressionContainer"
-                  ? showAttribute.value.expression
-                  : showAttribute.value
+        const attribute = openingElement.attributes[attributeIndex]
+        const value =
+                attribute.value.type === "JSXExpressionContainer"
+                  ? attribute.value.expression
+                  : attribute.value
 
-        // Remove the 'show' prop
-        openingElement.attributes.splice(showAttributeIndex, 1)
+        // Remove the prop
+        openingElement.attributes.splice(attributeIndex, 1)
 
         const conditionalExpression = api.types.conditionalExpression(
-          showValue,
+          value,
           path.node,
           api.types.nullLiteral()
         )
