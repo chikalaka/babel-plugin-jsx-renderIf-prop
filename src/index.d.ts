@@ -1,7 +1,9 @@
-import * as React from "react";
+declare module 'babel-plugin-jsx-renderif-prop' {
+    import * as React from 'react';
 
-declare module "react" {
-    interface Attributes {
-        renderIf?: boolean;
+    namespace JSX {
+        interface IntrinsicAttributes {
+            renderIf?: boolean;
+        }
     }
 }
