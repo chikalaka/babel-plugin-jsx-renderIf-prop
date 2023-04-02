@@ -1,8 +1,9 @@
 {
   "name": "babel-plugin-jsx-renderif-prop",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A Babel plugin that adds a 'renderIf' prop to JSX elements for conditionally rendering components in React",
   "main": "src/index.js",
+  "types": "src/jsx-renderif-prop.d.ts",
   "module": "src/index.js",
   "scripts": {
     "test": "jest"
